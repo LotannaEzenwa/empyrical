@@ -898,3 +898,18 @@ class TestStats(TestCase):
             cagr,
             noisy_cagr_2,
             1)
+
+    @parameterized.expand([
+        (empty_returns, np.nan),
+        (one_return, np.nan),
+        (flat_line_1, np.nan),
+        (pos_line, 54.799662435119096),
+        (neg_line, np.nan),
+        
+    ])
+    def test_sqn(self, trade_returns, expected):
+        assert_almost_equal(
+            empyrical.SQN(trade_returns),
+            expected,
+            DECIMAL_PLACES
+            )

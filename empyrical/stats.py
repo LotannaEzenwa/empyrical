@@ -784,17 +784,20 @@ def SQN(trade_returns):
         SystemQualityNumber
 
     """
-
-    n_trades = len(trade_returns)
+    n_trades = len(trade_returns.values)
 
     if n_trades < 30:
         return np.nan
 
     pos = trade_returns[trade_returns > 0]
-    std = pos.std()
-    avg = pos.mean()
 
-    if std == 0:
+    if len(pos) < 3:
+        return np.nan 
+
+    std = np.nanstd(pos,ddof=1)
+    avg = np.nanmean(pos)
+
+    if abs(std) < np.finfo(np.float).eps:
         return np.nan
 
     return np.sqrt(n_trades)*avg/std
