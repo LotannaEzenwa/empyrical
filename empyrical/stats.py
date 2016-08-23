@@ -770,7 +770,7 @@ def cagr(returns, period=DAILY, annualization=None):
     return ending_value ** (1. / no_years) - 1
 
 
-def SQN(trade_returns):
+def sqn(trade_returns):
     """Determines the SystemQualityNumber of trades as defined by Van K. Tharp.
 
     Parameters
