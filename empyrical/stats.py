@@ -797,10 +797,10 @@ def SQN(trade_returns):
     std = np.nanstd(pos, ddof=1)
     avg = np.nanmean(pos)
 
-    if abs(std) < np.finfo(np.float).eps:
+    if std == 0:
         return np.nan
 
-    return np.sqrt(n_trades)*avg/std
+    return np.sqrt(n_trades) * avg / std
 
 
 SIMPLE_STAT_FUNCS = [

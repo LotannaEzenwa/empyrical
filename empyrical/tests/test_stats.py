@@ -85,6 +85,12 @@ class TestStats(TestCase):
         index=pd.date_range('2000-1-30', periods=1000, freq='D')
     )
 
+    # Intercept line
+    intercept_line = pd.Series(
+        np.linspace(-1, 1, num=1000),
+        index=pd.date_range('2000-1-30', periods=1000, freq='D')
+    )
+
     # Negative line
     neg_line = pd.Series(
         np.linspace(0, -1, num=1000),
@@ -905,6 +911,7 @@ class TestStats(TestCase):
         (flat_line_1, np.nan),
         (pos_line, 54.799662435119096),
         (neg_line, np.nan),
+        (intercept_line, 54.717565516458279),
     ])
     def test_sqn(self, trade_returns, expected):
         assert_almost_equal(
