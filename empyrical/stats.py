@@ -792,9 +792,9 @@ def SQN(trade_returns):
     pos = trade_returns[trade_returns > 0]
 
     if len(pos) < 3:
-        return np.nan 
+        return np.nan
 
-    std = np.nanstd(pos,ddof=1)
+    std = np.nanstd(pos, ddof=1)
     avg = np.nanmean(pos)
 
     if abs(std) < np.finfo(np.float).eps:
