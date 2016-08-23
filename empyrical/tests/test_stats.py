@@ -414,9 +414,10 @@ class TestStats(TestCase):
     ])
     def test_downside_risk(self, returns, required_return, period, expected):
         downside_risk = empyrical.downside_risk(
-                        returns,
-                        required_return=required_return,
-                        period=period)
+            returns,
+            required_return=required_return,
+            period=period
+            )
         if isinstance(downside_risk, float):
             assert_almost_equal(
                 downside_risk,
@@ -501,9 +502,10 @@ class TestStats(TestCase):
     ])
     def test_sortino(self, returns, required_return, period, expected):
         sortino_ratio = empyrical.sortino_ratio(
-                        returns,
-                        required_return=required_return,
-                        period=period)
+            returns,
+            required_return=required_return,
+            period=period
+            )
         if isinstance(sortino_ratio, float):
             assert_almost_equal(
                 sortino_ratio,
