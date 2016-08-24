@@ -825,5 +825,5 @@ FACTOR_STAT_FUNCS = [
 ]
 
 TRADE_STAT_FUNCS = [
-    SQN,
+    sqn,
 ]

@@ -915,7 +915,7 @@ class TestStats(TestCase):
     ])
     def test_sqn(self, trade_returns, expected):
         assert_almost_equal(
-            empyrical.SQN(trade_returns),
+            empyrical.sqn(trade_returns),
             expected,
             DECIMAL_PLACES
             )
