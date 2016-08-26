@@ -919,3 +919,14 @@ class TestStats(TestCase):
             expected,
             DECIMAL_PLACES
             )
+
+    @parameterized.expand([
+        (50 * pos_line**2 - 10, noise_uniform * 2000),
+        (noise_uniform * 2000, noise_uniform * 2000)
+    ])
+    def test_sqn_noise(self, trade_returns, noise):
+        # Adding noise the signal will generally decrease SQN
+        noised_returns = trade_returns + noise
+        sqn1 = empyrical.sqn(trade_returns)
+        sqn2 = empyrical.sqn(noised_returns)
+        assert(sqn1 >= sqn2)
